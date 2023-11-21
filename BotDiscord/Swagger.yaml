@@ -1,0 +1,376 @@
+openapi: 3.0.0
+info:
+  description: The Bot is a silent observing bot which can verify if discord related tasks are completed. It needs to be present in the respective server for the verification to work.
+  version: "1.0.0"
+  title: Discord Bot Capx App
+  contact:
+    email: varun@capx.global
+tags:
+  - name: Users
+    description: Authenticated users only
+paths:
+  /checkUserJoined:
+    get:
+      tags:
+        - Users
+      summary: Checks if a user joined the server
+      operationId: User_Joined
+      parameters:
+        - in: query
+          name: guildId
+          description: The id of the server to check
+          required: true
+          example: 1044564181262798880
+          schema:
+            type: string
+        - in: query
+          name: username
+          description: The username of the user to check
+          required: true
+          example: example#1234
+          schema:
+            type: string
+      responses:
+        '200':
+          description: No errors in the request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result: 
+                    type: boolean
+                    description: result of check
+        '400':
+          description: bad input parameter
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Description of error in request
+        '403':
+          description: Authentication Failure
+  /checkUserReacted:
+    get:
+      tags:
+        - Users
+      summary: Checks if a user reacted to a message
+      operationId: User_Reacted
+      parameters:
+        - in: query
+          name: guildId
+          description: The id of the server to check
+          required: true
+          example: 1044564181262798880
+          schema:
+            type: string
+        - in: query
+          name: username
+          description: The username of the user to check
+          required: true
+          example: example#1234
+          schema:
+            type: string
+        - in: query
+          name: channelId
+          description: The id of the channel the message is in
+          required: true
+          example: 1044564181980020759
+          schema:
+            type: string
+        - in: query
+          name: messageId
+          description: The id of the message the user should have reacted to
+          required: true
+          example: 1045047081259245588
+          schema:
+            type: string
+        - in: query
+          name: emoji
+          description: The emoji the user should have reacted with
+          required: true
+          example: 🤣
+          schema:
+            type: string
+      responses:
+        '200':
+          description: No errors in the request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result: 
+                    type: boolean
+                    description: result of check
+        '400':
+          description: bad input parameter
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Description of error in request
+        '403':
+          description: Authentication Failure
+  /checkUserHasRole:
+    get:
+      tags:
+        - Users
+      summary: Checks if a user has a role
+      operationId: User_Has_Role
+      parameters:
+        - in: query
+          name: guildId
+          description: The id of the server to check
+          required: true
+          example: 1044564181262798880
+          schema:
+            type: string
+        - in: query
+          name: username
+          description: The username of the user to check
+          required: true
+          example: example#1234
+          schema:
+            type: string
+        - in: query
+          name: role
+          description: The name of the role the user should have
+          required: true
+          example: example role
+          schema:
+            type: string
+      responses:
+        '200':
+          description: No errors in the request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result: 
+                    type: boolean
+                    description: result of check
+        '400':
+          description: bad input parameter
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Description of error in request
+        '403':
+          description: Authentication Failure
+  /checkUserMessage:
+    get:
+      tags:
+        - Users
+      summary: Checks if a user sent a message that contains a certain text
+      operationId: User_Message
+      parameters:
+        - in: query
+          name: guildId
+          description: The id of the server to check
+          required: true
+          example: 1044564181262798880
+          schema:
+            type: string
+        - in: query
+          name: username
+          description: The username of the user to check
+          required: true
+          example: example#1234
+          schema:
+            type: string
+        - in: query
+          name: message
+          description: The part of message the user should have sent
+          required: true
+          example: hi
+          schema:
+            type: string
+      responses:
+        '200':
+          description: No errors in the request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result: 
+                    type: boolean
+                    description: result of check
+        '400':
+          description: bad input parameter
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Description of error in request
+        '403':
+          description: Authentication Failure
+  /checkUserInVoice:
+    get:
+      tags:
+        - Users
+      summary: Checks if a user is in a voice channel
+      operationId: User_In_Voice
+      parameters:
+        - in: query
+          name: guildId
+          description: The id of the server to check
+          required: true
+          example: 1044564181262798880
+          schema:
+            type: string
+        - in: query
+          name: username
+          description: The username of the user to check
+          required: true
+          example: example#1234
+          schema:
+            type: string
+        - in: query
+          name: channelId
+          description: The id of the channel the user should be in
+          required: true
+          example: 1044564181980020759
+          schema:
+            type: string
+      responses:
+        '200':
+          description: No errors in the request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result: 
+                    type: boolean
+                    description: result of check
+        '400':
+          description: bad input parameter
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Description of error in request
+        '403':
+          description: Authentication Failure
+  /checkUserSubscribedToEvent:
+    get:
+      tags:
+        - Users
+      summary: Checks if a user is subscribed to an event
+      operationId: User_Subscribed_To_Event
+      parameters:
+        - in: query
+          name: guildId
+          description: The id of the server to check
+          required: true
+          example: 1044564181262798880
+          schema:
+            type: string
+        - in: query
+          name: username
+          description: The username of the user to check
+          required: true
+          example: example#1234
+          schema:
+            type: string
+        - in: query
+          name: eventId
+          description: The id of the event the user should be subscribed to
+          required: true
+          example: 1052879630425657395
+          schema:
+            type: string
+      responses:
+        '200':
+          description: No errors in the request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result: 
+                    type: boolean
+                    description: result of check
+        '400':
+          description: bad input parameter
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Description of error in request
+        '403':
+          description: Authentication Failure
+  /checkUserAttendedEvent:
+    get:
+      tags:
+        - Users
+      summary: Checks if a user attended an event. (returns `true` even if the user didn't attend the event for its full duration)
+      operationId: User_Attended_Event
+      parameters:
+        - in: query
+          name: guildId
+          description: The id of the server to check
+          required: true
+          example: 1044564181262798880
+          schema:
+            type: string
+        - in: query
+          name: username
+          description: The username of the user to check
+          required: true
+          example: example#1234
+          schema:
+            type: string
+        - in: query
+          name: eventId
+          description: The id of the event to check
+          required: true
+          example: 1052879630425657395
+          schema:
+            type: string
+      responses:
+        '200':
+          description: No errors in the request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result: 
+                    type: boolean
+                    description: result of check
+        '400':
+          description: bad input parameter
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Description of error in request
+        '403':
+          description: Authentication Failure
+  

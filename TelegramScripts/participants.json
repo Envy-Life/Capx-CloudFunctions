@@ -1,0 +1,42 @@
+[
+    {
+        "flags": 33555547,
+        "self": true,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 0,
+        "id": "1787286268",
+        "accessHash": "-9056357106490539756",
+        "firstName": "Varun",
+        "lastName": null,
+        "username": "Envy_life",
+        "phone": "917016915199",
+        "photo": null,
+        "status": {
+            "wasOnline": 1683868227,
+            "className": "UserStatusOffline"
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "className": "User"
+    }
+]
